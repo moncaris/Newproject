@@ -27,10 +27,10 @@ pipeline {
             steps {
                 script {
                     // Run the Docker container for testing
-                    docker.image("${IMAGE_NAME}").run('-d -p 8081:80 --name temp-container')
+                    docker.image("${IMAGE_NAME}").run('-d -p 8085:80 --name temp-container')
                     
                     // Perform basic health check
-                    sh 'curl -s http://localhost:8081 | grep "Welcome to Our Landing Page!"'
+                    sh 'curl -s http://localhost:8085 | grep "Welcome to Our Landing Page!"'
                 }
             }
         }
